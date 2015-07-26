@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0649A87D1B630309004469FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0649A87C1B630309004469FD /* AppDelegate.swift */; };
-		0649A87F1B630309004469FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0649A87E1B630309004469FD /* ViewController.swift */; };
+		0649A87F1B630309004469FD /* RecordSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0649A87E1B630309004469FD /* RecordSleepViewController.swift */; };
 		0649A8821B630309004469FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0649A8801B630309004469FD /* Main.storyboard */; };
 		0649A8841B630309004469FD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0649A8831B630309004469FD /* Images.xcassets */; };
 		0649A8871B630309004469FD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0649A8851B630309004469FD /* LaunchScreen.xib */; };
@@ -29,7 +29,7 @@
 		0649A8771B630309004469FD /* Sleep Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sleep Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0649A87B1B630309004469FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0649A87C1B630309004469FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0649A87E1B630309004469FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0649A87E1B630309004469FD /* RecordSleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSleepViewController.swift; sourceTree = "<group>"; };
 		0649A8811B630309004469FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0649A8831B630309004469FD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0649A8861B630309004469FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				0649A87C1B630309004469FD /* AppDelegate.swift */,
-				0649A87E1B630309004469FD /* ViewController.swift */,
+				0649A87E1B630309004469FD /* RecordSleepViewController.swift */,
 				0649A8801B630309004469FD /* Main.storyboard */,
 				0649A8831B630309004469FD /* Images.xcassets */,
 				0649A8851B630309004469FD /* LaunchScreen.xib */,
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0649A87F1B630309004469FD /* ViewController.swift in Sources */,
+				0649A87F1B630309004469FD /* RecordSleepViewController.swift in Sources */,
 				0649A87D1B630309004469FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +409,7 @@
 				0649A8981B63030A004469FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0649A8991B63030A004469FD /* Build configuration list for PBXNativeTarget "Sleep PalTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +418,7 @@
 				0649A89B1B63030A004469FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
