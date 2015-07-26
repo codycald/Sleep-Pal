@@ -14,37 +14,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SleepEntryCell" rowHeight="113" id="r4M-8x-ntZ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SleepEntryCell" rowHeight="113" id="r4M-8x-ntZ" customClass="SleepEntryCell" customModule="Sleep_Pal" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4M-8x-ntZ" id="gbF-27-aFc">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jun 12, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tA-EL-Z0A">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jun 12, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tA-EL-Z0A">
                                             <rect key="frame" x="21" y="45" width="100" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:00 AM - 12:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZd-ax-rfk">
-                                            <rect key="frame" x="16" y="78" width="138" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 AM - 12:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZd-ax-rfk">
+                                            <rect key="frame" x="16" y="78" width="110" height="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="95%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-on-WHe">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="95%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-on-WHe">
                                             <rect key="frame" x="514" y="41" width="52" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9h 21min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsm-67-huS">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9h 21min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsm-67-huS">
                                             <rect key="frame" x="265" y="45" width="71" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="OZd-ax-rfk" firstAttribute="leading" secondItem="gbF-27-aFc" secondAttribute="leadingMargin" constant="8" id="8qn-rl-ixE"/>
+                                        <constraint firstAttribute="centerX" secondItem="wsm-67-huS" secondAttribute="centerX" constant="-0.5" id="DdD-NI-daX"/>
+                                        <constraint firstItem="OZd-ax-rfk" firstAttribute="top" secondItem="7tA-EL-Z0A" secondAttribute="bottom" constant="12" id="IJr-je-Pde"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="h3a-on-WHe" secondAttribute="trailing" constant="26" id="J9b-UL-f0a"/>
+                                        <constraint firstAttribute="centerY" secondItem="h3a-on-WHe" secondAttribute="centerY" id="PEp-jN-vzJ"/>
+                                        <constraint firstItem="7tA-EL-Z0A" firstAttribute="leading" secondItem="gbF-27-aFc" secondAttribute="leadingMargin" constant="13" id="ifv-mN-dLw"/>
+                                        <constraint firstItem="7tA-EL-Z0A" firstAttribute="top" secondItem="gbF-27-aFc" secondAttribute="topMargin" constant="37" id="juw-2p-9Cz"/>
+                                        <constraint firstAttribute="centerY" secondItem="wsm-67-huS" secondAttribute="centerY" constant="0.5" id="r5I-Lm-kY6"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="7tA-EL-Z0A" id="Cen-TK-VJ8"/>
+                                    <outlet property="durationLabel" destination="wsm-67-huS" id="And-r2-ShZ"/>
+                                    <outlet property="sleepEfficiencyLabel" destination="h3a-on-WHe" id="Rb7-wH-crC"/>
+                                    <outlet property="timeLabel" destination="OZd-ax-rfk" id="Su4-1a-rhV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

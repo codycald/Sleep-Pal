@@ -19,6 +19,9 @@ class SleepEntryTableViewController: UITableViewController {
         healthManager.readSleepData({ [weak self](results, error) -> Void in
             if let results = results {
                 self!.entries = results as! [HKCategorySample]
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self!.tableView.reloadData()
+                })
             }
         })
     }
@@ -36,9 +39,44 @@ class SleepEntryTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SleepEntryCell", forIndexPath: indexPath) as! UITableViewCell
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("SleepEntryCell", forIndexPath: indexPath) as! SleepEntryCell
+        
+        let sleepData = entries[indexPath.row]
+        let startDate = sleepData.startDate
+        let endDate = sleepData.endDate
+        
+        cell.dateLabel.text = getDateStringForSleepData(sleepData)
+        cell.timeLabel.text = getTimeStringForSleepData(sleepData)
+        cell.durationLabel.text = getDurationStringForSleepData(sleepData)
+        cell.sleepEfficiencyLabel.text = getSleepEfficiencyStringForSleepData(sleepData)
 
         return cell
+    }
+    
+    func getDateStringForSleepData(sleepData: HKCategorySample) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy"
+        formatter.locale = NSLocale(localeIdentifier: "en_US")
+        return formatter.stringFromDate(sleepData.startDate)
+    }
+    
+    func getTimeStringForSleepData(sleepData: HKCategorySample) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "h:mm a"
+        formatter.locale = NSLocale(localeIdentifier: "en_US")
+        return "\(formatter.stringFromDate(sleepData.startDate)) - \(formatter.stringFromDate(sleepData.endDate))"
+    }
+    
+    func getDurationStringForSleepData(sleepData: HKCategorySample) -> String {
+        var intervalInSeconds = sleepData.endDate.timeIntervalSinceDate(sleepData.startDate)
+        let hours = floor(intervalInSeconds / 3600)
+        if (hours > 0) { intervalInSeconds -= hours * 3600 }
+        let minutes = floor(intervalInSeconds / 60)
+        if (minutes > 0) { intervalInSeconds -= minutes * 60 }
+        return "\(Int(hours))h \(Int(minutes))min"
+    }
+    
+    func getSleepEfficiencyStringForSleepData(sleepData: HKCategorySample) -> String {
+        return "95%"
     }
 }

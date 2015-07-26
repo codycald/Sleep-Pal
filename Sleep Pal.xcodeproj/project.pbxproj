@@ -16,6 +16,7 @@
 		06FDBFCB1B64C43300D7ED12 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06FDBFCA1B64C43300D7ED12 /* HealthKit.framework */; };
 		06FDBFCD1B64D68C00D7ED12 /* SleepEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDBFCC1B64D68C00D7ED12 /* SleepEntryTableViewController.swift */; };
 		06FDBFCF1B64DDF300D7ED12 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDBFCE1B64DDF300D7ED12 /* HealthKitManager.swift */; };
+		06FDBFDB1B65043F00D7ED12 /* SleepEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDBFDA1B65043F00D7ED12 /* SleepEntryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		06FDBFCA1B64C43300D7ED12 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		06FDBFCC1B64D68C00D7ED12 /* SleepEntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepEntryTableViewController.swift; sourceTree = "<group>"; };
 		06FDBFCE1B64DDF300D7ED12 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		06FDBFDA1B65043F00D7ED12 /* SleepEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepEntryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				0649A87E1B630309004469FD /* RecordSleepViewController.swift */,
 				06FDBFCC1B64D68C00D7ED12 /* SleepEntryTableViewController.swift */,
 				06FDBFCE1B64DDF300D7ED12 /* HealthKitManager.swift */,
+				06FDBFDA1B65043F00D7ED12 /* SleepEntryCell.swift */,
 				0649A8801B630309004469FD /* Main.storyboard */,
 				0649A8831B630309004469FD /* Images.xcassets */,
 				0649A8851B630309004469FD /* LaunchScreen.xib */,
@@ -233,6 +236,7 @@
 				06FDBFCD1B64D68C00D7ED12 /* SleepEntryTableViewController.swift in Sources */,
 				0649A87F1B630309004469FD /* RecordSleepViewController.swift in Sources */,
 				06FDBFCF1B64DDF300D7ED12 /* HealthKitManager.swift in Sources */,
+				06FDBFDB1B65043F00D7ED12 /* SleepEntryCell.swift in Sources */,
 				0649A87D1B630309004469FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
