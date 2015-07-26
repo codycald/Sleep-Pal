@@ -18,8 +18,7 @@ class RecordSleepViewController: UIViewController {
     let greenColor = UIColor(red: 75.0 / 255.0, green: 198.0 / 255.0, blue: 63.0 / 255.0, alpha: 1.0)
     let redColor = UIColor.redColor()
     
-    var healthKitStore: HKHealthStore!
-    let categoryType: HKObjectType = HKObjectType.categoryTypeForIdentifier(HKCategoryTypeIdentifierSleepAnalysis)
+    let healthManager = HealthKitManager.sharedManager()
     
     var recording = false
     var startDate: NSDate!
@@ -27,13 +26,10 @@ class RecordSleepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (HKHealthStore.isHealthDataAvailable()) {
-            healthKitStore = HKHealthStore()
-            healthKitStore.requestAuthorizationToShareTypes([categoryType], readTypes: [categoryType]) {
-                success, error in
-                if (!success) {
-                    // Do something
-                }
+        healthManager.authorize {
+            success, error in
+            if (!success) {
+                // Error
             }
         }
     }
@@ -67,18 +63,21 @@ class RecordSleepViewController: UIViewController {
             metaData["hours"] = hours
             metaData["minutes"] = minutes
             metaData["seconds"] = seconds
-            saveIntervalToHealthKit(startDate, stopDate: stopDate, metadata: metaData)
+            healthManager.saveSleepData(startDate: startDate, stopDate: stopDate, metadata: metaData, completion: {
+                success, error in
+                if (success) { self.showSaveSuccessfulNotification() }
+            })
         }
     }
     
-    func saveIntervalToHealthKit(startDate: NSDate, stopDate: NSDate, metadata: [NSObject : AnyObject]!) {
-        let sampleType = HKObjectType.categoryTypeForIdentifier(HKCategoryTypeIdentifierSleepAnalysis)
-        let sampleValue = HKCategoryValueSleepAnalysis.Asleep.rawValue
-        let sample = HKCategorySample(type: sampleType, value: sampleValue, startDate: startDate, endDate: stopDate, metadata: metadata)
-        healthKitStore.saveObject(sample, withCompletion: {
-            success, error in
-            println(success ? "Saved sleep data" : "Could not save sleep data")
-        })
+    func showSaveSuccessfulNotification() {
+        let alert = UIAlertController(title: "Success!", message: "Your sleep data has been synced to HealthKit!", preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            [weak self] action in
+            self!.tabBarController?.selectedIndex = 1
+        }
+        alert.addAction(okAction)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }
 
