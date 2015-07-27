@@ -34,6 +34,11 @@ class SleepEntryDetailViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.popToRootViewControllerAnimated(false)
+    }
+    
     func setupUI() {
         setupTitle()
         setupChart()
