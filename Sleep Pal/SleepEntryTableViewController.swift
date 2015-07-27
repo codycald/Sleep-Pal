@@ -13,6 +13,9 @@ class SleepEntryTableViewController: UITableViewController {
     
     var entries = [HKCategorySample]()
     let healthManager = HealthKitManager.sharedManager()
+    
+    
+    // MARK: Life cycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +28,14 @@ class SleepEntryTableViewController: UITableViewController {
             }
         })
     }
+    
+    // MARK: UITableViewDataSource
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return entries.count
     }
     
@@ -52,6 +53,24 @@ class SleepEntryTableViewController: UITableViewController {
 
         return cell
     }
+    
+    // MARK: UITableViewDelegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("entryDetail", sender: self.entries[indexPath.row])
+    }
+    
+    // MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "entryDetail") {
+            let dvc = segue.destinationViewController as! SleepEntryDetailViewController
+            let sleepData = sender as! HKCategorySample
+            dvc.sleepData = sleepData
+        }
+    }
+    
+    // MARK: Helper methods
     
     func getDateStringForSleepData(sleepData: HKCategorySample) -> String {
         let formatter = NSDateFormatter()

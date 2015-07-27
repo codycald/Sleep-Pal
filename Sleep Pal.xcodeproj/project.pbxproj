@@ -17,6 +17,7 @@
 		06FDBFCD1B64D68C00D7ED12 /* SleepEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDBFCC1B64D68C00D7ED12 /* SleepEntryTableViewController.swift */; };
 		06FDBFCF1B64DDF300D7ED12 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDBFCE1B64DDF300D7ED12 /* HealthKitManager.swift */; };
 		06FDBFDB1B65043F00D7ED12 /* SleepEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDBFDA1B65043F00D7ED12 /* SleepEntryCell.swift */; };
+		06FDBFDD1B650F5A00D7ED12 /* SleepEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDBFDC1B650F5A00D7ED12 /* SleepEntryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		06FDBFCC1B64D68C00D7ED12 /* SleepEntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepEntryTableViewController.swift; sourceTree = "<group>"; };
 		06FDBFCE1B64DDF300D7ED12 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		06FDBFDA1B65043F00D7ED12 /* SleepEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepEntryCell.swift; sourceTree = "<group>"; };
+		06FDBFDC1B650F5A00D7ED12 /* SleepEntryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepEntryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				06FDBFCC1B64D68C00D7ED12 /* SleepEntryTableViewController.swift */,
 				06FDBFCE1B64DDF300D7ED12 /* HealthKitManager.swift */,
 				06FDBFDA1B65043F00D7ED12 /* SleepEntryCell.swift */,
+				06FDBFDC1B650F5A00D7ED12 /* SleepEntryDetailViewController.swift */,
 				0649A8801B630309004469FD /* Main.storyboard */,
 				0649A8831B630309004469FD /* Images.xcassets */,
 				0649A8851B630309004469FD /* LaunchScreen.xib */,
@@ -235,6 +238,7 @@
 			files = (
 				06FDBFCD1B64D68C00D7ED12 /* SleepEntryTableViewController.swift in Sources */,
 				0649A87F1B630309004469FD /* RecordSleepViewController.swift in Sources */,
+				06FDBFDD1B650F5A00D7ED12 /* SleepEntryDetailViewController.swift in Sources */,
 				06FDBFCF1B64DDF300D7ED12 /* HealthKitManager.swift in Sources */,
 				06FDBFDB1B65043F00D7ED12 /* SleepEntryCell.swift in Sources */,
 				0649A87D1B630309004469FD /* AppDelegate.swift in Sources */,

@@ -60,9 +60,6 @@ class RecordSleepViewController: UIViewController {
             let seconds = intervalInSeconds
             println("Stopping. Recording was: \(hours) hours, \(minutes) minutes, and \(seconds) seconds")
             var metaData: [NSObject : AnyObject] = [:]
-            metaData["hours"] = hours
-            metaData["minutes"] = minutes
-            metaData["seconds"] = seconds
             healthManager.saveSleepData(startDate: startDate, stopDate: stopDate, metadata: metaData, completion: {
                 success, error in
                 if (success) { self.showSaveSuccessfulNotification() }
@@ -71,7 +68,7 @@ class RecordSleepViewController: UIViewController {
     }
     
     func showSaveSuccessfulNotification() {
-        let alert = UIAlertController(title: "Success!", message: "Your sleep data has been synced to HealthKit!", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Good Morning!", message: "Your sleep data has been synced to HealthKit!", preferredStyle: .Alert)
         let okAction = UIAlertAction(title: "Ok", style: .Default) {
             [weak self] action in
             self!.tabBarController?.selectedIndex = 1
