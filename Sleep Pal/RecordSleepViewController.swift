@@ -14,6 +14,7 @@ class RecordSleepViewController: UIViewController {
     @IBOutlet weak var logoLabel: UILabel!
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var moonImageView: UIImageView!
     
     let greenColor = UIColor(red: 75.0 / 255.0, green: 198.0 / 255.0, blue: 63.0 / 255.0, alpha: 1.0)
     let redColor = UIColor.redColor()
@@ -28,12 +29,11 @@ class RecordSleepViewController: UIViewController {
     var recording = false
     var startDate: NSDate!
     
-    
     // MARK: Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         healthManager.authorize {
             success, error in
             if (!success) {
@@ -64,12 +64,22 @@ class RecordSleepViewController: UIViewController {
         
         if (recording) {
             // Start recording
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            let skip = userDefaults.boolForKey("skipInstructions")
+            if (!skip) {
+                performSegueWithIdentifier("instructionsSegue", sender: nil)
+            }
             startDate = NSDate()
             println("Began recording. Start date is: \(startDate)")
             motionManager.startReceivingAccelerometerUpdatesWithInterval(0.5, completion: {
                 [weak self] data, error in
                 self!.sleepAnalyzer.updateWithAccelerometerData(data)
             })
+            
+            UIView.animateWithDuration(1, animations: { [weak self]() -> Void in
+                self!.instructionsLabel.alpha = 0.0
+            })
+            
         } else {
             // Stop recording
             motionManager.stopReceivingAccelerometerUpdates({ println("Accelerometer stoppped") })
@@ -81,6 +91,10 @@ class RecordSleepViewController: UIViewController {
             healthManager.saveSleepData(startDate: startDate, stopDate: stopDate, metadata: metaData, completion: {
                 success, error in
                 if (success) { self.showSaveSuccessfulAlert() }
+            })
+            
+            UIView.animateWithDuration(1, animations: { [weak self]() -> Void in
+                self!.instructionsLabel.alpha = 1.0
             })
         }
     }
