@@ -18,8 +18,12 @@ class RecordSleepViewController: UIViewController {
     let greenColor = UIColor(red: 75.0 / 255.0, green: 198.0 / 255.0, blue: 63.0 / 255.0, alpha: 1.0)
     let redColor = UIColor.redColor()
     
+    let accelerometerUpdateInterval = 0.5
+    let secondsPerSleepMeasurement = 60 * 2
+    
     let healthManager = HealthKitManager.sharedManager()
     let motionManager = CoreMotionManager.sharedManager()
+    var sleepAnalyzer: SleepAnalyzer!
     
     var recording = false
     var startDate: NSDate!
@@ -36,6 +40,7 @@ class RecordSleepViewController: UIViewController {
                 // Error
             }
         }
+        sleepAnalyzer = SleepAnalyzer(updateInterval: accelerometerUpdateInterval, secondsPerMeasurement: secondsPerSleepMeasurement)
     }
     
     // MARK: IBActions
@@ -56,12 +61,15 @@ class RecordSleepViewController: UIViewController {
             startDate = NSDate()
             println("Began recording. Start date is: \(startDate)")
             motionManager.startReceivingAccelerometerUpdatesWithInterval(0.5, completion: {
-                data, error in
-                println("Received accelerometer update")
+                [weak self] data, error in
+                self!.sleepAnalyzer.updateWithAccelerometerData(data)
             })
         } else {
             // Stop recording
             motionManager.stopReceivingAccelerometerUpdates({ println("Accelerometer stoppped") })
+            let sleepData = sleepAnalyzer.getAnalyzedSleepData()
+            sleepAnalyzer.clearAllData()
+            
             let stopDate = NSDate()
             var metaData: [NSObject : AnyObject] = [:]
             healthManager.saveSleepData(startDate: startDate, stopDate: stopDate, metadata: metaData, completion: {
