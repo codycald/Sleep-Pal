@@ -17,6 +17,7 @@ class SleepEntryDetailViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var sleepQualityLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
     let redColor = UIColor(red: 255.0/255.0, green: 76.0/255.0, blue: 75.0/255.0, alpha: 1.0)
     let blueColor = UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
@@ -46,6 +47,10 @@ class SleepEntryDetailViewController: UIViewController {
     }
     
     func setupChart() {
+        if (sleepData == nil || sleepData!.count == 0) {
+            errorLabel.hidden = false
+            return
+        }
         chart = JBBarChartView()
         chart.dataSource = self
         chart.delegate = self

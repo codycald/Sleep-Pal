@@ -12,9 +12,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="113" sectionHeaderHeight="22" sectionFooterHeight="22" id="bQP-O1-y2m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.19134316130000001" green="0.21094690869999999" blue="0.2468039773" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="0.19134316130000001" green="0.21094690869999999" blue="0.2468039773" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="sectionIndexTrackingBackgroundColor" red="0.19134316130000001" green="0.21094690869999999" blue="0.2468039773" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.11372549019607843" green="0.16078431372549018" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.11372549019607843" green="0.16078431372549018" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexTrackingBackgroundColor" red="0.1137254902" green="0.16078431369999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SleepEntryCell" rowHeight="113" id="r4M-8x-ntZ" customClass="SleepEntryCell" customModule="Sleep_Pal" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -92,12 +92,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9m-0m-9QD" customClass="UILabel">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9m-0m-9QD">
                                 <rect key="frame" x="42" y="72" width="516" height="211"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="78" text="No sleep quality data to graph. The recording was too short." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA3-5k-XGp">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="JH5-x6-ABs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="JH5-x6-ABs"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="JH5-x6-ABs"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.1137254902" green="0.16078431369999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="211" id="S8R-BM-REc"/>
+                                    <constraint firstAttribute="centerX" secondItem="YA3-5k-XGp" secondAttribute="centerX" id="auP-Fx-5xz"/>
+                                    <constraint firstAttribute="centerY" secondItem="YA3-5k-XGp" secondAttribute="centerY" constant="-0.5" id="dcC-Ee-aQc"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="YA3-5k-XGp"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="auP-Fx-5xz"/>
+                                        <exclude reference="dcC-Ee-aQc"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="YA3-5k-XGp"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="auP-Fx-5xz"/>
+                                        <include reference="dcC-Ee-aQc"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHx-qp-ifH">
                                 <rect key="frame" x="42" y="333" width="41" height="21"/>
@@ -165,7 +206,9 @@
                             <constraint firstItem="7uT-li-Rgt" firstAttribute="top" secondItem="q9m-0m-9QD" secondAttribute="bottom" constant="21" id="2Va-Gl-Udh"/>
                             <constraint firstItem="BpX-1Q-Pt0" firstAttribute="top" secondItem="q9m-0m-9QD" secondAttribute="bottom" constant="21" id="8yl-4l-iyG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7uT-li-Rgt" secondAttribute="trailing" constant="15" id="Ay6-jr-s59"/>
-                            <constraint firstItem="FwM-fA-tCk" firstAttribute="top" secondItem="yx3-uT-lq9" secondAttribute="bottom" constant="8" id="Cge-Dc-a9l"/>
+                            <constraint firstItem="FwM-fA-tCk" firstAttribute="top" secondItem="yx3-uT-lq9" secondAttribute="bottom" constant="8" id="Cge-Dc-a9l">
+                                <variation key="widthClass=compact" constant="6"/>
+                            </constraint>
                             <constraint firstItem="FHx-qp-ifH" firstAttribute="top" secondItem="BpX-1Q-Pt0" secondAttribute="bottom" constant="-1" id="GUu-CN-Vl5"/>
                             <constraint firstItem="ss0-VL-vIO" firstAttribute="centerX" secondItem="sce-hk-ANl" secondAttribute="centerX" constant="-0.5" id="Ick-q3-Ayx"/>
                             <constraint firstItem="1db-Fo-vfG" firstAttribute="top" secondItem="q9m-0m-9QD" secondAttribute="bottom" constant="21" id="KiD-5F-kn7"/>
@@ -183,7 +226,9 @@
                             <constraint firstItem="hZD-1I-3ZN" firstAttribute="top" secondItem="1db-Fo-vfG" secondAttribute="bottom" constant="-1" id="mGO-Wu-MJO"/>
                             <constraint firstItem="K2n-39-2hE" firstAttribute="centerX" secondItem="7uT-li-Rgt" secondAttribute="centerX" id="r7e-fo-zYF"/>
                             <constraint firstItem="ss0-VL-vIO" firstAttribute="leading" secondItem="y2M-Q4-7aa" secondAttribute="leadingMargin" constant="5" id="t1n-LM-odp"/>
-                            <constraint firstItem="yx3-uT-lq9" firstAttribute="top" secondItem="K2n-39-2hE" secondAttribute="bottom" constant="91" id="w87-C9-BXH"/>
+                            <constraint firstItem="yx3-uT-lq9" firstAttribute="top" secondItem="K2n-39-2hE" secondAttribute="bottom" constant="91" id="w87-C9-BXH">
+                                <variation key="widthClass=compact" constant="98"/>
+                            </constraint>
                             <constraint firstItem="q9m-0m-9QD" firstAttribute="trailing" secondItem="y2M-Q4-7aa" secondAttribute="trailingMargin" constant="-26" id="yeB-Q8-QVS"/>
                         </constraints>
                     </view>
@@ -191,6 +236,7 @@
                         <outlet property="awakeLabel" destination="7uT-li-Rgt" id="P1c-Fa-off"/>
                         <outlet property="deepLabel" destination="BpX-1Q-Pt0" id="jn9-0a-Sqs"/>
                         <outlet property="durationLabel" destination="sce-hk-ANl" id="cCL-8Y-utN"/>
+                        <outlet property="errorLabel" destination="YA3-5k-XGp" id="jkr-15-349"/>
                         <outlet property="lightLabel" destination="1db-Fo-vfG" id="e5O-yK-cYH"/>
                         <outlet property="sleepQualityLabel" destination="FwM-fA-tCk" id="VTK-Og-yoH"/>
                         <outlet property="timeLabel" destination="ss0-VL-vIO" id="SIx-yS-Hd8"/>
@@ -198,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dal-g5-haR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2764" y="-370"/>
+            <point key="canvasLocation" x="2763" y="-370"/>
         </scene>
         <!--Record Sleep View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -316,13 +362,13 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aCC-2d-I3d">
                                 <rect key="frame" x="369" y="508" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dont show me this again" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-IW-wLB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't show me this again" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-IW-wLB">
                                 <rect key="frame" x="166" y="513" width="190" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="368" placeholderIntrinsicHeight="114" text="Plug in the phone and place it under (or close to) your pillow. You can lock the screen." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gef-Sg-Y8a">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="368" placeholderIntrinsicHeight="114" text="Plug in the phone and place it under (or close to) your pillow." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gef-Sg-Y8a">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
