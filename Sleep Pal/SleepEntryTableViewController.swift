@@ -19,14 +19,16 @@ class SleepEntryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        healthManager.readSleepData({ [weak self](results, error) -> Void in
-            if let results = results {
-                self!.entries = results as! [HKCategorySample]
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self!.tableView.reloadData()
-                })
-            }
-        })
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshSleepData", name: UIApplicationWillEnterForegroundNotification, object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshSleepData()
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillEnterForegroundNotification, object: nil)
     }
     
     // MARK: UITableViewDataSource
@@ -71,6 +73,17 @@ class SleepEntryTableViewController: UITableViewController {
     }
     
     // MARK: Helper methods
+    
+    func refreshSleepData() {
+        healthManager.readSleepData({ [weak self](results, error) -> Void in
+            if let results = results {
+                self!.entries = results as! [HKCategorySample]
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self!.tableView.reloadData()
+                })
+            }
+        })
+    }
     
     func getDateStringForSleepData(sleepData: HKCategorySample) -> String {
         let formatter = NSDateFormatter()
