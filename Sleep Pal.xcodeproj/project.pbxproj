@@ -18,6 +18,7 @@
 		06FDBFCF1B64DDF300D7ED12 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDBFCE1B64DDF300D7ED12 /* HealthKitManager.swift */; };
 		06FDBFDB1B65043F00D7ED12 /* SleepEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDBFDA1B65043F00D7ED12 /* SleepEntryCell.swift */; };
 		06FDBFDD1B650F5A00D7ED12 /* SleepEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDBFDC1B650F5A00D7ED12 /* SleepEntryDetailViewController.swift */; };
+		4D696975960CE3FADBBDFABE /* libPods-Sleep Pal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B80EDE82055B69728C577D2 /* libPods-Sleep Pal.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,9 @@
 		06FDBFCE1B64DDF300D7ED12 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		06FDBFDA1B65043F00D7ED12 /* SleepEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepEntryCell.swift; sourceTree = "<group>"; };
 		06FDBFDC1B650F5A00D7ED12 /* SleepEntryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepEntryDetailViewController.swift; sourceTree = "<group>"; };
+		46D79A6B1B6059E1F5DF87EF /* Pods-Sleep Pal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sleep Pal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sleep Pal/Pods-Sleep Pal.release.xcconfig"; sourceTree = "<group>"; };
+		7B80EDE82055B69728C577D2 /* libPods-Sleep Pal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sleep Pal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83CF401755CD4B65E984DA7D /* Pods-Sleep Pal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sleep Pal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sleep Pal/Pods-Sleep Pal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06FDBFCB1B64C43300D7ED12 /* HealthKit.framework in Frameworks */,
+				4D696975960CE3FADBBDFABE /* libPods-Sleep Pal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +80,8 @@
 				0649A8791B630309004469FD /* Sleep Pal */,
 				0649A88F1B63030A004469FD /* Sleep PalTests */,
 				0649A8781B630309004469FD /* Products */,
+				97DFF48D9345FE601BFB8358 /* Pods */,
+				F18487F4F7EF1CE0C23B9066 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +137,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		97DFF48D9345FE601BFB8358 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83CF401755CD4B65E984DA7D /* Pods-Sleep Pal.debug.xcconfig */,
+				46D79A6B1B6059E1F5DF87EF /* Pods-Sleep Pal.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F18487F4F7EF1CE0C23B9066 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B80EDE82055B69728C577D2 /* libPods-Sleep Pal.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +161,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0649A8961B63030A004469FD /* Build configuration list for PBXNativeTarget "Sleep Pal" */;
 			buildPhases = (
+				38B4D527958E61020EB0FDF7 /* Check Pods Manifest.lock */,
 				0649A8731B630309004469FD /* Sources */,
 				0649A8741B630309004469FD /* Frameworks */,
 				0649A8751B630309004469FD /* Resources */,
+				1BEC1DD5BC0465252ABEA990 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,6 +256,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BEC1DD5BC0465252ABEA990 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sleep Pal/Pods-Sleep Pal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38B4D527958E61020EB0FDF7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0649A8731B630309004469FD /* Sources */ = {
@@ -366,6 +425,7 @@
 		};
 		0649A8971B63030A004469FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83CF401755CD4B65E984DA7D /* Pods-Sleep Pal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Sleep Pal/Sleep Pal.entitlements";
@@ -380,6 +440,7 @@
 		};
 		0649A8981B63030A004469FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46D79A6B1B6059E1F5DF87EF /* Pods-Sleep Pal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Sleep Pal/Sleep Pal.entitlements";
