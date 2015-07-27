@@ -77,7 +77,9 @@ class SleepEntryTableViewController: UITableViewController {
     func refreshSleepData() {
         healthManager.readSleepData({ [weak self](results, error) -> Void in
             if let results = results {
-                self!.entries = results as! [HKCategorySample]
+                self!.entries = (results as! [HKCategorySample]).filter({ (data: HKCategorySample) -> Bool in
+                    return data.source == HKSource.defaultSource()
+                })
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self!.tableView.reloadData()
                 })
