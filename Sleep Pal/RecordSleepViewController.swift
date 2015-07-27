@@ -19,7 +19,7 @@ class RecordSleepViewController: UIViewController {
     let redColor = UIColor.redColor()
     
     let accelerometerUpdateInterval = 0.5
-    let secondsPerSleepMeasurement = 60 * 2
+    let secondsPerSleepMeasurement = 6
     
     let healthManager = HealthKitManager.sharedManager()
     let motionManager = CoreMotionManager.sharedManager()
@@ -71,7 +71,7 @@ class RecordSleepViewController: UIViewController {
             sleepAnalyzer.clearAllData()
             
             let stopDate = NSDate()
-            var metaData: [NSObject : AnyObject] = [:]
+            var metaData: [NSObject : AnyObject] = getMetadataFromSleepData(sleepData)
             healthManager.saveSleepData(startDate: startDate, stopDate: stopDate, metadata: metaData, completion: {
                 success, error in
                 if (success) { self.showSaveSuccessfulNotification() }
@@ -89,6 +89,16 @@ class RecordSleepViewController: UIViewController {
         }
         alert.addAction(okAction)
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func getMetadataFromSleepData(sleepData: [SleepType]) -> [NSObject : AnyObject] {
+        var res = [NSObject : AnyObject]()
+        var pattern = ""
+        for data in sleepData {
+            pattern += data == .Deep ? "0" : data == .Light ? "1" : "2"
+        }
+        res["Sleep Pattern"] = pattern
+        return res
     }
 }
 

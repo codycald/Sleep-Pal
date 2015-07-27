@@ -48,6 +48,7 @@
 		065673281B65E1E800C67055 /* CoreMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMotionManager.swift; sourceTree = "<group>"; };
 		0656732A1B65EA5200C67055 /* SleepAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepAnalyzer.swift; sourceTree = "<group>"; };
 		0656732C1B65F56800C67055 /* SleepType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepType.swift; sourceTree = "<group>"; };
+		0656732E1B66109100C67055 /* Sleep Pal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sleep Pal-Bridging-Header.h"; sourceTree = "<group>"; };
 		0691A1A41B64C2080011F675 /* Sleep Pal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Sleep Pal.entitlements"; sourceTree = "<group>"; };
 		06FDBFCA1B64C43300D7ED12 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		06FDBFCC1B64D68C00D7ED12 /* SleepEntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepEntryTableViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 				0649A8831B630309004469FD /* Images.xcassets */,
 				0649A8851B630309004469FD /* LaunchScreen.xib */,
 				0649A87A1B630309004469FD /* Supporting Files */,
+				0656732E1B66109100C67055 /* Sleep Pal-Bridging-Header.h */,
 			);
 			path = "Sleep Pal";
 			sourceTree = "<group>";
@@ -440,6 +442,7 @@
 			baseConfigurationReference = 83CF401755CD4B65E984DA7D /* Pods-Sleep Pal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Sleep Pal/Sleep Pal.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -447,6 +450,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sleep Pal/Sleep Pal-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -455,6 +460,7 @@
 			baseConfigurationReference = 46D79A6B1B6059E1F5DF87EF /* Pods-Sleep Pal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Sleep Pal/Sleep Pal.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -462,6 +468,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sleep Pal/Sleep Pal-Bridging-Header.h";
 			};
 			name = Release;
 		};

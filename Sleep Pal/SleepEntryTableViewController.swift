@@ -68,7 +68,7 @@ class SleepEntryTableViewController: UITableViewController {
         if (segue.identifier == "entryDetail") {
             let dvc = segue.destinationViewController as! SleepEntryDetailViewController
             let sleepData = sender as! HKCategorySample
-            dvc.sleepData = sleepData
+            dvc.sleepSample = sleepData
         }
     }
     
@@ -108,7 +108,11 @@ class SleepEntryTableViewController: UITableViewController {
         return "\(Int(hours))h \(Int(minutes))min"
     }
     
-    func getSleepEfficiencyStringForSleepData(sleepData: HKCategorySample) -> String {
-        return "95%"
+    func getSleepEfficiencyStringForSleepData(sleepSample: HKCategorySample) -> String {
+        
+        // DELETE LATER: Repitition
+        let sleepData = SleepAnalyzer.getSleepTypesFromSample(sleepSample)
+        let sleepQualityPercentage = SleepAnalyzer.determineSleepQuality(sleepData)
+        return "\(sleepQualityPercentage)%"
     }
 }

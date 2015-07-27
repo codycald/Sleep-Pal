@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMotion
+import HealthKit
 
 class SleepAnalyzer: NSObject {
    
@@ -45,6 +46,36 @@ class SleepAnalyzer: NSObject {
     func clearAllData() {
         reset()
         analyzedData = [SleepType]()
+    }
+    
+    class func countSleepTypePercentages(sleepData: [SleepType]) -> (deepPercentage: Int, lightPercentage: Int, awakePercentage: Int) {
+        let deepCount = sleepData.filter { $0 == SleepType.Deep }.count
+        let lightCount = sleepData.filter { $0 == SleepType.Light }.count
+        let awakeCount = sleepData.filter { $0 == SleepType.Awake }.count
+        
+        let sum = deepCount + lightCount + awakeCount
+        
+        let deepPercentage = Int(round((Double(deepCount) / Double(sum == 0 ? 1 : sum)) * 100))
+        let lightPercentage = Int(round((Double(lightCount) / Double(sum == 0 ? 1 : sum)) * 100))
+        let awakePercentage = 100 - deepPercentage - lightPercentage
+        return (deepPercentage, lightPercentage, awakePercentage)
+    }
+    
+    class func determineSleepQuality(sleepData: [SleepType]) -> Int {
+        let amounts = countSleepTypePercentages(sleepData)
+        return 100 - amounts.awakePercentage
+    }
+    
+    class func getSleepTypesFromSample(sleepSample: HKCategorySample) -> [SleepType] {
+        var sleepData = [SleepType]()
+        if let metadata: AnyObject = sleepSample.metadata?["Sleep Pattern"] {
+            if let pattern = metadata as? String {
+                for c in pattern {
+                    sleepData.append(c == "0" ? .Deep : c == "1" ? .Light : .Awake)
+                }
+            }
+        }
+        return sleepData
     }
     
     private func reset() {
