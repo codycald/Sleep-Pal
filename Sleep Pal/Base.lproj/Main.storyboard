@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CUh-Yd-BPx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -246,7 +247,7 @@
             </objects>
             <point key="canvasLocation" x="2763" y="-370"/>
         </scene>
-        <!--Record Sleep View Controller-->
+        <!--Sleep-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="RecordSleepViewController" customModule="Sleep_Pal" customModuleProvider="target" sceneMemberID="viewController">
@@ -285,10 +286,10 @@
                                     <action selector="startPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="myw-x4-prY"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moon" translatesAutoresizingMaskIntoConstraints="NO" id="myz-Nc-bI2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="moon" translatesAutoresizingMaskIntoConstraints="NO" id="myz-Nc-bI2">
                                 <rect key="frame" x="229" y="169" width="143" height="155"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ready to sleep? Press start to begin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buz-I3-Vbc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready to sleep? Press start to begin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buz-I3-Vbc">
                                 <rect key="frame" x="154" y="387" width="293" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -312,7 +313,7 @@
                             <constraint firstAttribute="centerX" secondItem="Y99-Ug-rpo" secondAttribute="centerX" id="yXd-yE-bvB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="aNP-Rt-6im"/>
+                    <tabBarItem key="tabBarItem" title="Sleep" image="Double_Bed" selectedImage="Double_Bed" id="aNP-Rt-6im"/>
                     <connections>
                         <outlet property="instructionsLabel" destination="Buz-I3-Vbc" id="WEv-Xk-Dtb"/>
                         <outlet property="logoLabel" destination="fMG-Wo-TBh" id="6Hr-Cc-vtY"/>
@@ -359,10 +360,10 @@
                                     <action selector="donePressed:" destination="TDs-n7-kd4" eventType="touchUpInside" id="3su-YZ-jyy"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aCC-2d-I3d">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aCC-2d-I3d">
                                 <rect key="frame" x="369" y="508" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't show me this again" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-IW-wLB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Don't show me this again" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-IW-wLB">
                                 <rect key="frame" x="166" y="513" width="190" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -430,8 +431,10 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="D01-JL-neK">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="0.298955252" blue="0.29409465410000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.19134316127916678" green="0.21094690873502955" blue="0.24680397727272727" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="ywx-Sk-r8T"/>
@@ -442,11 +445,11 @@
             </objects>
             <point key="canvasLocation" x="340" y="375"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Entries-->
         <scene sceneID="wDE-fa-vZl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QDe-dP-jg1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="WHK-MI-fk6"/>
+                    <tabBarItem key="tabBarItem" title="Entries" image="Bar_Chart" selectedImage="Bar_Chart" id="WHK-MI-fk6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kdG-lC-zX8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -468,6 +471,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bar_Chart" width="25" height="21"/>
+        <image name="Double_Bed" width="31" height="25"/>
         <image name="charge" width="150" height="361"/>
         <image name="moon" width="143" height="155"/>
     </resources>

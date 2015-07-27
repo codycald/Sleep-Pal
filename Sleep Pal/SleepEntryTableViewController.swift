@@ -19,6 +19,9 @@ class SleepEntryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        navigationController?.tabBarItem.selectedImage = UIImage(named: "Bar_Chart")
+        navigationController?.tabBarItem = UITabBarItem(title: "Entries", image: UIImage(named: "Bar_Chart"), tag: 0)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshSleepData", name: UIApplicationWillEnterForegroundNotification, object: nil)
     }
     

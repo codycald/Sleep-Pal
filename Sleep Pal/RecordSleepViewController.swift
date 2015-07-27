@@ -34,6 +34,8 @@ class RecordSleepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        tabBarItem.selectedImage = UIImage(named: "Double_Bed")
+        tabBarItem = UITabBarItem(title: "Sleep", image: UIImage(named: "Double_Bed"), tag: 0)
         healthManager.authorize {
             success, error in
             if (!success) {
