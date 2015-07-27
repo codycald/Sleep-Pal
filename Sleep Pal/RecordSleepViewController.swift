@@ -19,9 +19,13 @@ class RecordSleepViewController: UIViewController {
     let redColor = UIColor.redColor()
     
     let healthManager = HealthKitManager.sharedManager()
+    let motionManager = CoreMotionManager.sharedManager()
     
     var recording = false
     var startDate: NSDate!
+    
+    
+    // MARK: Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,8 @@ class RecordSleepViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: IBActions
 
     @IBAction func startPressed(sender: AnyObject) {
         if (!recording) {
@@ -49,16 +55,14 @@ class RecordSleepViewController: UIViewController {
             // Start recording
             startDate = NSDate()
             println("Began recording. Start date is: \(startDate)")
+            motionManager.startReceivingAccelerometerUpdatesWithInterval(0.5, completion: {
+                data, error in
+                println("Received accelerometer update")
+            })
         } else {
             // Stop recording
+            motionManager.stopReceivingAccelerometerUpdates({ println("Accelerometer stoppped") })
             let stopDate = NSDate()
-            var intervalInSeconds = stopDate.timeIntervalSinceDate(startDate)
-            let hours = floor(intervalInSeconds / 3600)
-            if (hours > 0) { intervalInSeconds -= hours * 3600 }
-            let minutes = floor(intervalInSeconds / 60 )
-            if (minutes > 0) { intervalInSeconds -= minutes * 60 }
-            let seconds = intervalInSeconds
-            println("Stopping. Recording was: \(hours) hours, \(minutes) minutes, and \(seconds) seconds")
             var metaData: [NSObject : AnyObject] = [:]
             healthManager.saveSleepData(startDate: startDate, stopDate: stopDate, metadata: metaData, completion: {
                 success, error in
@@ -66,6 +70,8 @@ class RecordSleepViewController: UIViewController {
             })
         }
     }
+    
+    // MARK: Helper methods
     
     func showSaveSuccessfulNotification() {
         let alert = UIAlertController(title: "Good Morning!", message: "Your sleep data has been synced to HealthKit!", preferredStyle: .Alert)
