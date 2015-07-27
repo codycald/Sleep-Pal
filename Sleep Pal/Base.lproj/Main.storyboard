@@ -218,15 +218,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ready to sleep? Press start to begin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buz-I3-Vbc">
-                                <rect key="frame" x="168" y="249" width="264" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y99-Ug-rpo">
                                 <rect key="frame" x="16" y="457" width="568" height="48"/>
                                 <color key="backgroundColor" red="0.29530123427642996" green="0.77647058820000003" blue="0.24614662731244907" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="zAO-Rt-aDL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,13 +239,24 @@
                                     <action selector="startPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="myw-x4-prY"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moon" translatesAutoresizingMaskIntoConstraints="NO" id="myz-Nc-bI2">
+                                <rect key="frame" x="229" y="169" width="143" height="155"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ready to sleep? Press start to begin--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buz-I3-Vbc">
+                                <rect key="frame" x="154" y="387" width="293" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.19607843137254902" green="0.23529411764705882" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Y99-Ug-rpo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="JKZ-xE-Uo6"/>
                             <constraint firstItem="fMG-Wo-TBh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="46" id="NMP-XS-j3s"/>
-                            <constraint firstAttribute="centerY" secondItem="Buz-I3-Vbc" secondAttribute="centerY" constant="42" id="c7N-zd-8ly"/>
+                            <constraint firstAttribute="centerX" secondItem="myz-Nc-bI2" secondAttribute="centerX" id="ObG-nr-ae5"/>
+                            <constraint firstItem="myz-Nc-bI2" firstAttribute="top" secondItem="fMG-Wo-TBh" secondAttribute="bottom" constant="18" id="RaF-H6-dIy"/>
                             <constraint firstItem="Y99-Ug-rpo" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="dxw-qV-hNV"/>
+                            <constraint firstItem="Y99-Ug-rpo" firstAttribute="top" secondItem="Buz-I3-Vbc" secondAttribute="bottom" constant="48" id="hvu-if-fCY"/>
                             <constraint firstAttribute="centerX" secondItem="Buz-I3-Vbc" secondAttribute="centerX" id="mnM-Dv-j72"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Y99-Ug-rpo" secondAttribute="bottom" constant="46" id="oNL-1H-CWA"/>
                             <constraint firstAttribute="centerX" secondItem="fMG-Wo-TBh" secondAttribute="centerX" id="qgr-ad-xu5"/>
@@ -266,25 +274,6 @@
             </objects>
             <point key="canvasLocation" x="1152" y="375"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="yIU-hq-4Fx">
-            <objects>
-                <viewController id="lNA-N2-2Jl" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sqN-Ci-jed"/>
-                        <viewControllerLayoutGuide type="bottom" id="eOj-Ds-7xJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ra5-yn-l4h">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="bcc-TW-T07"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C6l-hm-q9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1152" y="1122"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="buZ-ab-1MF">
             <objects>
@@ -298,7 +287,6 @@
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="ywx-Sk-r8T"/>
                         <segue destination="QDe-dP-jg1" kind="relationship" relationship="viewControllers" id="hAM-lS-Uqx"/>
-                        <segue destination="lNA-N2-2Jl" kind="relationship" relationship="viewControllers" id="osc-T6-hX6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVb-eU-JgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,4 +318,7 @@
             <point key="canvasLocation" x="1152" y="-370"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="moon" width="143" height="155"/>
+    </resources>
 </document>

@@ -46,6 +46,12 @@ class RecordSleepViewController: UIViewController {
     // MARK: IBActions
 
     @IBAction func startPressed(sender: AnyObject) {
+        
+        if (!healthManager.hasAuthorization()) {
+            showNeedAuthorizationAlert()
+            return
+        }
+        
         if (!recording) {
             startButton.setTitle("Stop", forState: .Normal)
             startButton.backgroundColor = redColor
@@ -74,19 +80,26 @@ class RecordSleepViewController: UIViewController {
             var metaData: [NSObject : AnyObject] = getMetadataFromSleepData(sleepData)
             healthManager.saveSleepData(startDate: startDate, stopDate: stopDate, metadata: metaData, completion: {
                 success, error in
-                if (success) { self.showSaveSuccessfulNotification() }
+                if (success) { self.showSaveSuccessfulAlert() }
             })
         }
     }
     
     // MARK: Helper methods
     
-    func showSaveSuccessfulNotification() {
+    func showSaveSuccessfulAlert() {
         let alert = UIAlertController(title: "Good Morning!", message: "Your sleep data has been synced to HealthKit!", preferredStyle: .Alert)
         let okAction = UIAlertAction(title: "Ok", style: .Default) {
             [weak self] action in
             self!.tabBarController?.selectedIndex = 1
         }
+        alert.addAction(okAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func showNeedAuthorizationAlert() {
+        let alert = UIAlertController(title: "Authorization needed", message: "This app needs permission to read and write sleep data in order to function correctly. You can grant it permission through the Health app", preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
         alert.addAction(okAction)
         self.presentViewController(alert, animated: true, completion: nil)
     }

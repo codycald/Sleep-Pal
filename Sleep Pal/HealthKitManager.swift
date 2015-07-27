@@ -33,7 +33,18 @@ class HealthKitManager: NSObject {
         }
     }
     
+    func hasAuthorization() -> Bool {
+        if (HKHealthStore.isHealthDataAvailable()) {
+            let status = healthKitStore.authorizationStatusForType(categoryType)
+            if (status == HKAuthorizationStatus.SharingAuthorized) {
+                return true
+            }
+        }
+        return false
+    }
+    
     func saveSleepData(#startDate: NSDate, stopDate: NSDate, metadata: [NSObject : AnyObject]!, completion: ((Bool, NSError!)-> Void)!) {
+        if (!hasAuthorization()) { return }
         let sampleType = HKObjectType.categoryTypeForIdentifier(HKCategoryTypeIdentifierSleepAnalysis)
         println(sampleType)
         let sampleValue = HKCategoryValueSleepAnalysis.Asleep.rawValue
